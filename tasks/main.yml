@@ -18,54 +18,54 @@
   become: yes
   become_method: su
 
--name: Install wget
- yum:
-   name: wget
-   state: latest
- become: yes
- become_method: su
+- name: Install wget
+  yum:
+    name: wget
+    state: latest
+  become: yes
+  become_method: su
 
--name: Install python3
- yum:
-   name: python3
-   state: latest
- become: yes
- become_method: su
+- name: Install python3
+  yum:
+    name: python3
+    state: latest
+  become: yes
+  become_method: su
 
--name: Get pSSIDGUI repo
- git:
-   repo: git@github.com:UMNET-perfSONAR/pSSID-GUI.git
-   dest: ~
+- name: Get pSSIDGUI repo
+  git:
+    repo: git@github.com:UMNET-perfSONAR/pSSID-GUI.git
+    dest: ~
 
 - name: make directory for sqlite
   file:
     path: ~/sqlite
     state: directory
 
--name: get sqlite package
- get_url:
-   url: https://kojipkgs.fedoraproject.org//packages/sqlite/3.9.0/1.fc21/x86_64/sqlite-3.9.0-1.fc21.x86_64.rpm
-   dest: ~/sqlite
+- name: get sqlite package
+  get_url:
+    url: https://kojipkgs.fedoraproject.org//packages/sqlite/3.9.0/1.fc21/x86_64/sqlite-3.9.0-1.fc21.x86_64.rpm
+    dest: ~/sqlite
 
--name: Install sqlite
- yum:
-   name: sqlite-3.9.0-1.fc21.x86_64.rpm
-   state: present
- become: yes
- become_method: su
+- name: Install sqlite
+  yum:
+    name: sqlite-3.9.0-1.fc21.x86_64.rpm
+    state: present
+  become: yes
+  become_method: su
 
--name: Create site-packages directory
- file:
-   path: /usr/local/lib/python3.6/site-packages
-   state: directory
- become: yes
- become_method: su
+- name: Create site-packages directory
+  file:
+    path: /usr/local/lib/python3.6/site-packages
+    state: directory
+  become: yes
+  become_method: su
 
--name: install pSSIDGUI requirements
- pip:
-   requirements: ~/pSSID-GUI/pSSIDGUI-root/requirements.txt
+- name: install pSSIDGUI requirements
+  pip:
+    requirements: ~/pSSID-GUI/pSSIDGUI-root/requirements.txt
 
--name: change file permissions for build_dev
- file:
-   path: ~/pSSID-GUI/build_dev
-   mode: u+x
+- name: change file permissions for build_dev
+  file:
+    path: ~/pSSID-GUI/build_dev
+    mode: u+x
