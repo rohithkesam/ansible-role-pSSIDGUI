@@ -1,9 +1,10 @@
 ---
 ############ Ansible Installation (Move to separate role later) ###############
 - name: Add the NodeSource yum repository
-  get_url:
+  uri:
     url: https://rpm.nodesource.com/setup_14.x
-    dest:
+    follow_redirects: safe
+    validate_certs: true
   become: yes 
 - name: Install node and npm 
   yum:
