@@ -38,7 +38,7 @@
   shell: git clone https://github.com/UMNET-perfSONAR/pSSID-GUI.git
   args:
     chdir: ~/
-
+  ignore_errors: yes
 - name: make directory for sqlite
   file:
     path: ~/sqlite
