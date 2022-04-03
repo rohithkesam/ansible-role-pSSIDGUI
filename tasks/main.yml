@@ -36,7 +36,7 @@
 
 - name: Get pSSIDGUI repo
   git:
-    repo: git@github.com:UMNET-perfSONAR/pSSID-GUI.git
+    repo: https://github.com/UMNET-perfSONAR/pSSID-GUI.git
     dest: ~/pSSID-GUI
 
 - name: make directory for sqlite
