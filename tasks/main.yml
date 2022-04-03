@@ -45,9 +45,10 @@
     state: directory
 
 - name: get sqlite package
-  get_url:
+  uri:
     url: https://kojipkgs.fedoraproject.org//packages/sqlite/3.9.0/1.fc21/x86_64/sqlite-3.9.0-1.fc21.x86_64.rpm
-    dest: ~/sqlite
+    follow_redirects: safe
+    validate_certs: true
 
 - name: Install sqlite
   yum:
