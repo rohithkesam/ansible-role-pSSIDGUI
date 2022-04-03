@@ -49,6 +49,7 @@
     url: https://kojipkgs.fedoraproject.org//packages/sqlite/3.9.0/1.fc21/x86_64/sqlite-3.9.0-1.fc21.x86_64.rpm
     follow_redirects: safe
     validate_certs: true
+  become: yes
 
 - name: Install sqlite
   yum:
