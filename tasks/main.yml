@@ -50,6 +50,7 @@
     follow_redirects: safe
     validate_certs: true
   become: yes
+  
 
 - name: Install sqlite
   yum:
@@ -57,6 +58,7 @@
     state: present
   become: yes
   become_method: su
+  ignore_errors: yes
 
 - name: Create site-packages directory
   file:
