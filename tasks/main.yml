@@ -76,7 +76,7 @@
     mode: u+x
 
 - name: Stop and disable firewalld.
-     service:
-       name: firewalld
-       state: stopped
-       enabled: False
+  service:
+    name: firewalld
+    state: stopped
+    enabled: False
