@@ -70,6 +70,7 @@
 - name: install pSSIDGUI requirements
   pip:
     requirements: ~/pSSID-GUI/pSSIDGUI-root/requirements.txt
+    executable: pip-3.3
 
 - name: change file permissions for build_dev
   file:
